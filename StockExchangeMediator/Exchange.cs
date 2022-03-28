@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using 
+
 
 namespace StockExchangeMediator
 {
@@ -19,7 +19,7 @@ namespace StockExchangeMediator
 
         public void serve(Order order)
         {
-
+            var financialEntity = new FinancialEntity();
             /**
              * Choose the financial entity suitable for the order
              */
