@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 
 
 namespace StockExchangeMediator
 {
     public class Exchange
     {
 
-        private list<FinancialEntity> financialEntities;
+        private List<FinancialEntity> financialEntities;
 
         public Exchange(FinancialEntity financialEntity)
         {
-            this.financialEntities.add(financialEntity);
+            financialEntities.Add(financialEntity);
         }
 
         public void serve(Order order)
