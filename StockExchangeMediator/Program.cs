@@ -1,13 +1,12 @@
 ﻿namespace StockExchangeMediator
 {
 
-    public static void Main(String[] args)
+    public void Main(String[] args)
     {
 
-        var FinancialEntity financialEntity;
-        FinancialEntity = new FinancialEntity();
+        FinancialEntity FinancialEntity = new FinancialEntity();
 
-        var Exchange exchange = new Exchange(financialEntity);
+        Exchange exchange = new Exchange(FinancialEntity);
 
         Trader trader = new Trader(exchange);
 
