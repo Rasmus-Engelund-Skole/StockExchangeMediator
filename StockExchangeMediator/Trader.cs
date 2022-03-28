@@ -16,7 +16,7 @@ namespace StockExchangeMediator
             this.exchange = exchange;
         }
 
-        public void buy(String stock, int quantity, Double price)
+        public void buy(string stock, int quantity, double price)
         {
             Order order = new Order();
             order.setStock(stock);

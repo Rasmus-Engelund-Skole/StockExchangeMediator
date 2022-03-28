@@ -9,11 +9,16 @@ namespace StockExchangeMediator
     public class Order
     {
 
-        private String stock;
+        private string? stock;
         private int quantity;
         private double price;
 
-        Order(string Stock, int Quantity, double Price)
+        public Order()
+        {
+
+        }
+
+        public Order(string Stock, int Quantity, double Price)
         {
             this.stock = Stock;
             this.quantity = Quantity;
@@ -21,12 +26,12 @@ namespace StockExchangeMediator
         }
 
 
-        public String getStock()
+        public string getStock()
         {
             return stock;
         }
 
-        public void setStock(String stock)
+        public void setStock(string stock)
         {
             this.stock = stock;
         }

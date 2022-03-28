@@ -1,7 +1,7 @@
 ﻿namespace StockExchangeMediator
 {
 
-    public void Main(String[] args)
+    public void Main(string[] args)
     {
 
         FinancialEntity FinancialEntity = new FinancialEntity();
