@@ -9,11 +9,11 @@ namespace StockExchangeMediator
     public class Exchange
     {
 
-        private FinancialEntity financialEntity;
+        private list<FinancialEntity> financialEntities;
 
         public Exchange(FinancialEntity financialEntity)
         {
-            this.financialEntity = financialEntity;
+            this.financialEntities.add(financialEntity);
         }
 
         public void serve(Order order)
