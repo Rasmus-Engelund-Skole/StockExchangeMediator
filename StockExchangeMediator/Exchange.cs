@@ -21,7 +21,7 @@ namespace StockExchangeMediator
             FinancialEntities.Add(entity);
         }
 
-        public FinancialEntity FindEntity(string origin)
+        public FinancialEntity? FindEntity(string origin)
         {
             switch (origin)
             {

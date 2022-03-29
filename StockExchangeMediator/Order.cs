@@ -29,7 +29,7 @@ namespace StockExchangeMediator
         }
 
 
-        public string getStock()
+        public string? getStock()
         {
             return stock;
         }
