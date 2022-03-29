@@ -11,14 +11,21 @@ namespace StockExchangeMediator
 
         private List<FinancialEntity> FinancialEntities;
 
+        private List<Trader> Traders;
         public Exchange()
-        {  
+        {
             FinancialEntities = new List<FinancialEntity>();
+            Traders = new List<Trader>();
         }
 
         public void AddFinancialEntity(FinancialEntity entity)
         {
             FinancialEntities.Add(entity);
+        }
+
+        public void AddTrader(Trader Trader)
+        {
+            Traders.Add(Trader);
         }
 
         public FinancialEntity? FindEntity(string origin)
@@ -64,6 +71,18 @@ namespace StockExchangeMediator
             return null;
         }
 
+        public Trader FindTrader(string name)
+        {
+            foreach (Trader T in Traders)
+            {
+                if(T._name == name)
+                    return T;
+            }
+
+            return null;
+
+        }
+
         public bool serve(Order order, string name)
         {
             /**
@@ -74,16 +93,18 @@ namespace StockExchangeMediator
             if (entity == null)
                 return false;
             
-            entity.sell(order);
-            Console.WriteLine("From {0}({1})", entity._name, order.StockOrigin);
-            Console.WriteLine("{3} bought {0} {1}, at {2} \n",
-                                       order.getQuantity(),
-                                       order.getStock(),
-                                       order.getPrice(),
-                                       name);
+            entity.sell(order, name);
+         
             return true;
                 
             
+        }
+
+        public void ConfirmTrade(Order order, string Tradername, FinancialEntity entity)
+        {
+            var trader = FindTrader(Tradername);
+
+            trader.OrderConfirmed(order, Tradername, entity);
         }
 
     }

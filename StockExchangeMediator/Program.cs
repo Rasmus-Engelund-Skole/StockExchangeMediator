@@ -18,6 +18,8 @@ exchange.AddFinancialEntity(LSE);
 exchange.AddFinancialEntity(WallStreet);
 
 
+
+
 //Create Traders who knows the exchange(mediator)
 Trader traderA = new Trader(exchange, "Poul");
 
@@ -25,6 +27,12 @@ Trader traderB = new Trader(exchange, "Elon Tåsk");
 
 Trader traderC = new Trader(exchange, "Rasputin");
 
+//Add traders to exchange(mediator)
+exchange.AddTrader(traderA);
+
+exchange.AddTrader(traderB);
+
+exchange.AddTrader(traderC);
 
 //Trade
 traderA.buy("Novo", 2, 32.2d, "DK");

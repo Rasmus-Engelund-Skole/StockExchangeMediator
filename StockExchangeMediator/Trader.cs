@@ -10,7 +10,7 @@ namespace StockExchangeMediator
     {
 
         private Exchange exchange;
-        private string _name;
+        public string _name { get; set; }
 
         public Trader(Exchange exchange, string name)
         {
@@ -36,5 +36,15 @@ namespace StockExchangeMediator
             
         }
 
+        public void OrderConfirmed(Order order, string Tradername, FinancialEntity entity)
+        {
+            Console.WriteLine("From {0}({1})", entity._name, order.StockOrigin);
+            Console.WriteLine("{3} bought {0} {1}, at {2} \n",
+                                       order.getQuantity(),
+                                       order.getStock(),
+                                       order.getPrice(),
+                                       _name);
+
+        }
     }
 }
