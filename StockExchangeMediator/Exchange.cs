@@ -16,6 +16,12 @@ namespace StockExchangeMediator
             financialEntities.Add(financialEntity);
         }
 
+        public void AddFinacialEntity(FinancialEntity financialEntity)
+        {
+            financialEntities.Add(financialEntity);
+        }
+
+
         public void serve(Order order)
         {
             // IKKE KORREKT
