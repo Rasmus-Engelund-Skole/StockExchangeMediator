@@ -28,6 +28,15 @@ namespace StockExchangeMediator
             this.StockOrigin = Origin;
         }
 
+        public void setStockOrigin(string origin)
+        {
+            this.StockOrigin = origin;
+        }
+
+        public string? getStockOrigin()
+        {
+            return this.StockOrigin;
+        }
 
         public string? getStock()
         {

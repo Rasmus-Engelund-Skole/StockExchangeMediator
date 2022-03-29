@@ -24,7 +24,7 @@ namespace StockExchangeMediator
             order.setStock(stock);
             order.setQuantity(quantity);
             order.setPrice(price);
-            order.StockOrigin = origin;
+            order.setStockOrigin(origin);
             var result = exchange.serve(order, _name);
 
             if (!result)
