@@ -8,13 +8,18 @@ namespace StockExchangeMediator
 {
     public class FinancialEntity
     {
+        public string _name;
 
+        
+
+        public FinancialEntity(string name)
+        {
+            _name = name;
+        }
+        
         public bool sell(Order order)
         {
 
-            /**
-             * Supposing the sale was successful return true
-             */
             return true;
         }
 

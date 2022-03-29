@@ -12,17 +12,20 @@ namespace StockExchangeMediator
         private string? stock;
         private int quantity;
         private double price;
+        public string? StockOrigin;
+
 
         public Order()
         {
 
         }
 
-        public Order(string Stock, int Quantity, double Price)
+        public Order(string Stock, int Quantity, double Price, string Origin)
         {
             this.stock = Stock;
             this.quantity = Quantity;
             this.price = Price;
+            this.StockOrigin = Origin;
         }
 
 
