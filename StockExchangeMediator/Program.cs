@@ -1,6 +1,6 @@
 ﻿using StockExchangeMediator;
 
-//Create mediator
+//Create exchange(mediator)
 Exchange exchange = new Exchange();
 
 //Create Financial Entities
@@ -10,12 +10,13 @@ FinancialEntity LSE = new FinancialEntity("London Stock Exchange");
 
 FinancialEntity WallStreet = new FinancialEntity("WallStreet");
 
-//
+//add financialenities to exchange(mediator)
 exchange.AddFinancialEntity(Børsen);
 
 exchange.AddFinancialEntity(LSE);
 
 exchange.AddFinancialEntity(WallStreet);
+
 
 //Create Traders who knows the exchange(mediator)
 Trader traderA = new Trader(exchange, "Poul");
