@@ -10,11 +10,12 @@ namespace StockExchangeMediator
     {
         public string _name;
 
-        
+        private Exchange _exchange;
 
-        public FinancialEntity(string name)
+        public FinancialEntity(string name, Exchange exchange)
         {
             _name = name;
+            _exchange = exchange;
         }
         
         public bool sell(Order order)

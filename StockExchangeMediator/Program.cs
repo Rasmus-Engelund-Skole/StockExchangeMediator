@@ -4,11 +4,11 @@
 Exchange exchange = new Exchange();
 
 //Create Financial Entities
-FinancialEntity Børsen = new FinancialEntity("Børsen");
+FinancialEntity Børsen = new FinancialEntity("Børsen", exchange);
 
-FinancialEntity LSE = new FinancialEntity("London Stock Exchange");
+FinancialEntity LSE = new FinancialEntity("London Stock Exchange", exchange);
 
-FinancialEntity WallStreet = new FinancialEntity("WallStreet");
+FinancialEntity WallStreet = new FinancialEntity("WallStreet", exchange);
 
 //add financialenities to exchange(mediator)
 exchange.AddFinancialEntity(Børsen);
