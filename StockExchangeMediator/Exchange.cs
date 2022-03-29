@@ -18,7 +18,8 @@ namespace StockExchangeMediator
 
         public void serve(Order order)
         {
-
+            // IKKE KORREKT
+            var financialEntity = new FinancialEntity();
             /**
              * Choose the financial entity suitable for the order
              */
