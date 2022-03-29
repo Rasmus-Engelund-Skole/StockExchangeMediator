@@ -33,6 +33,8 @@ traderB.buy("Tesla", 1000, 1094.1d, "US");
 
 traderB.buy("Kingfisher", 1000000, 1.2d, "UK");
 
+traderA.buy("TK Tankers", 2, 2.2d, "US");
+
 traderC.buy("Alibaba", 10000, 70.2d, "CN");
 
 
