@@ -71,11 +71,11 @@ namespace StockExchangeMediator
             return null;
         }
 
-        public Trader FindTrader(string name)
+        public Trader FindTrader(string Tradername)
         {
             foreach (Trader T in Traders)
             {
-                if(T._name == name)
+                if(T._name == Tradername)
                     return T;
             }
 
@@ -83,7 +83,7 @@ namespace StockExchangeMediator
 
         }
 
-        public bool serve(Order order, string name)
+        public bool serve(Order order, string Tradername)
         {
             /**
              * Choose the financial entity suitable for the order
@@ -93,7 +93,7 @@ namespace StockExchangeMediator
             if (entity == null)
                 return false;
             
-            entity.sell(order, name);
+            entity.sell(order, Tradername);
          
             return true;
                 
@@ -103,6 +103,8 @@ namespace StockExchangeMediator
         public void ConfirmTrade(Order order, string Tradername, FinancialEntity entity)
         {
             var trader = FindTrader(Tradername);
+            
+             
 
             trader.OrderConfirmed(order, Tradername, entity);
         }

@@ -18,10 +18,10 @@ namespace StockExchangeMediator
             _exchange = exchange;
         }
         
-        public void sell(Order order, string name)
+        public void sell(Order order, string Tradername)
         {
 
-            _exchange.ConfirmTrade(order, name, this);
+            _exchange.ConfirmTrade(order, Tradername, this);
         }
 
     }
