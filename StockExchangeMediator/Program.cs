@@ -43,12 +43,12 @@ exchange.AddRegulator(regulator);
 
 
 //Trade
-traderA.buy("Novo", 2, 32.2d, "DK");
+traderA.Buy("Novo", 2, 32.2d, "DK");
 
-traderB.buy("Tesla", 1000, 1094.1d, "US");
+traderB.Buy("Tesla", 1000, 1094.1d, "US");
 
-traderB.buy("Kingfisher", 1000000, 1.2d, "UK");
+traderB.Buy("Kingfisher", 1000000, 1.2d, "UK");
 
-traderC.buy("Alibaba", 10000, 70.2d, "CN");
+traderC.Buy("Alibaba", 10000, 70.2d, "CN");
 
 

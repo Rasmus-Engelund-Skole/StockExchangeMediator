@@ -9,10 +9,10 @@ namespace StockExchangeMediator
     public class Exchange
     {
         //List of financial entities
-        private List<FinancialEntity> FinancialEntities;
+        private readonly List<FinancialEntity> FinancialEntities;
 
         //List of Traders
-        private List<Trader> Traders;
+        private readonly List<Trader> Traders;
 
         //Regulator
         private Regulator? regulator;
@@ -102,7 +102,7 @@ namespace StockExchangeMediator
             //Find trader where name equals the name we are searching for and return it
             foreach (Trader T in Traders)
             {
-                if(T._name == Tradername)
+                if(T.TraderName == Tradername)
                     return T;
             }
 
@@ -111,7 +111,7 @@ namespace StockExchangeMediator
         }
 
         //Sends the order from trader to correct financial entity
-        public bool serve(Order order, string Tradername)
+        public bool Serve(Order order, string Tradername)
         {
             /**
              * Choose the financial entity suitable for the order
@@ -122,9 +122,9 @@ namespace StockExchangeMediator
             //if not found return false
             if (entity == null)
                 return false;
-            //Else sell
+            //Else Sell
             else
-                entity.sell(order, Tradername);
+                entity.Sell(order, Tradername);
             //return true (tade went through)
             return true;
                 

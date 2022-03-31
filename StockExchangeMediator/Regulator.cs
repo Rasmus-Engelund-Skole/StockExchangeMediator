@@ -9,7 +9,7 @@ namespace StockExchangeMediator
     public class Regulator
     {
         //Reference to the mediator
-        private Exchange exchange;
+        private readonly Exchange exchange;
 
         public Regulator(Exchange exchange)
         {
@@ -26,10 +26,10 @@ namespace StockExchangeMediator
             if(order == null)
                 exchange.ValidationNotOk(order, Tradername);
 
-            if(order.getPrice() > 0 & 
-                order.getQuantity() > 0 & 
-                order.getStock != null & 
-                order.getStockOrigin != null)
+            if(order.GetPrice() > 0 & 
+                order.GetQuantity() > 0 & 
+                order.GetStock != null & 
+                order.GetStockOrigin != null)
                 exchange.ValidationOk(order, Tradername);
             else
                 exchange.ValidationNotOk(order, Tradername);

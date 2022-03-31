@@ -30,42 +30,42 @@ namespace StockExchangeMediator
         }
 
         //Set and get for all attributes
-        public void setStockOrigin(string origin)
+        public void SetStockOrigin(string origin)
         {
            this.StockOrigin = origin;
         }
 
-        public string? getStockOrigin()
+        public string? GetStockOrigin()
         {
             return this.StockOrigin;
         }
 
-        public string? getStock()
+        public string? GetStock()
         {
             return stockName;
         }
 
-        public void setStock(string stock)
+        public void SetStock(string stock)
         {
             this.stockName = stock;
         }
 
-        public int getQuantity()
+        public int GetQuantity()
         {
             return quantity;
         }
 
-        public void setQuantity(int quantity)
+        public void SetQuantity(int quantity)
         {
             this.quantity = quantity;
         }
 
-        public double getPrice()
+        public double GetPrice()
         {
             return price;
         }
 
-        public void setPrice(double price)
+        public void SetPrice(double price)
         {
             this.price = price;
         }
