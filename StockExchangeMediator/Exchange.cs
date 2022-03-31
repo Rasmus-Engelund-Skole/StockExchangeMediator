@@ -138,7 +138,7 @@ namespace StockExchangeMediator
             var trader = FindTrader(Tradername);
 
             //Confirm his order went through and from what entity he bought
-            trader.OrderConfirmed(order, Tradername, entity);
+            trader.OrderConfirmed(order, entity);
         }
 
         //Send traders order to validation in regulator

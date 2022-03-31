@@ -39,7 +39,7 @@ namespace StockExchangeMediator
         }
 
         //Writes the order to console when confirmed from financial entity
-        public void OrderConfirmed(Order order, string Tradername, FinancialEntity entity)
+        public void OrderConfirmed(Order order, FinancialEntity entity)
         {
             Console.WriteLine("From {0}({1})", entity._name, order.StockOrigin);
             Console.WriteLine("{3} bought {0} {1}, at {2} \n",
