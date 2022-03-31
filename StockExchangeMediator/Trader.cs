@@ -25,15 +25,15 @@ namespace StockExchangeMediator
             order.setQuantity(quantity);
             order.setPrice(price);
             order.setStockOrigin(origin);
-            var result = exchange.serve(order, _name);
 
-            if (!result)
-            {
-                Console.WriteLine("!!!!!!!!!!ERROR!!!!!!!!!!");
-                Console.WriteLine("{0}, error in your transaction, unknown stock origin.", _name);
-                Console.WriteLine("Acceptable origins: DK, UK, US. \n");
-            }
-            
+            Console.WriteLine("{0} wants to buy {1} {2} {3} {4}", _name, order.getQuantity(),
+                                       order.getStock(),
+                                       order.getPrice(),
+                                       order.getStockOrigin());
+
+            exchange.Validate(order, _name);
+
+
         }
 
         public void OrderConfirmed(Order order, string Tradername, FinancialEntity entity)
@@ -46,5 +46,35 @@ namespace StockExchangeMediator
                                        _name);
 
         }
+
+        public void ValidateOrder(Order order, string Tradername)
+        {
+            exchange.Validate(order, Tradername);
+        }
+
+        public void OrderValidated(Order order)
+        {
+            Console.WriteLine("Order has been validated, now buying \n");
+
+            var result = exchange.serve(order, _name);
+
+            if (!result)
+            {
+                Console.WriteLine("!!!!!!!!!!ERROR!!!!!!!!!!");
+                Console.WriteLine("{0}, error in your transaction, unknown stock origin.", _name);
+                Console.WriteLine("Acceptable origins: DK, UK, US. \n");
+            }
+        }
+
+        public void OrderNotValid(Order order)
+        {
+            Console.WriteLine("You order of {0}, {1}, {2}, {3} is not valid",
+                order.getStock(),
+                order.getPrice(),
+                order.getQuantity(), 
+                order.getStockOrigin());
+
+        }
+
     }
 }
