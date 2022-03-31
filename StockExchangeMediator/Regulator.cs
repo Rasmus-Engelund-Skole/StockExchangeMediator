@@ -17,7 +17,7 @@ namespace StockExchangeMediator
         }
 
         /*Validates that the price and quantity is positive, 
-        and that the stockname and origin is no null
+        and that the stockname and origin is not null
         */
         public void ValidateOrder(Order order, string Tradername)
         {

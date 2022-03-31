@@ -32,7 +32,7 @@ namespace StockExchangeMediator
         //Set and get for all attributes
         public void setStockOrigin(string origin)
         {
-            this.StockOrigin = origin;
+           this.StockOrigin = origin;
         }
 
         public string? getStockOrigin()
