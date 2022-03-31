@@ -1,5 +1,8 @@
 ﻿using StockExchangeMediator;
 
+//This example is loosely based on and expands the example found on: https://dzone.com/articles/behavioural-design-patterns-mediator 
+
+
 //Create exchange(mediator)
 Exchange exchange = new Exchange();
 

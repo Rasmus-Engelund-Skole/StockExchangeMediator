@@ -10,6 +10,7 @@ namespace StockExchangeMediator
     {
         public string _name;
 
+        //Reference to the mediator
         private Exchange _exchange;
 
         public FinancialEntity(string name, Exchange exchange)
@@ -18,9 +19,10 @@ namespace StockExchangeMediator
             _exchange = exchange;
         }
         
+        //For simplicity the financial entity accepts all orders that has been validated
         public void sell(Order order, string Tradername)
         {
-
+            //Send confirmation back to trader
             _exchange.ConfirmTrade(order, Tradername, this);
         }
 

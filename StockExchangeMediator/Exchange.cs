@@ -8,12 +8,15 @@ namespace StockExchangeMediator
 {
     public class Exchange
     {
-
+        //List of financial entities
         private List<FinancialEntity> FinancialEntities;
 
+        //List of Traders
         private List<Trader> Traders;
 
+        //Regulator
         private Regulator? regulator;
+
         public Exchange()
         {
             FinancialEntities = new List<FinancialEntity>();
@@ -21,30 +24,35 @@ namespace StockExchangeMediator
 
         }
         
+        //Add reference to regulator
         public void AddRegulator(Regulator reg)
         {
             regulator = reg;    
         }
 
+        //Add financial entity
         public void AddFinancialEntity(FinancialEntity entity)
         {
 
             FinancialEntities.Add(entity);
         }
 
+        //Add trader to list
         public void AddTrader(Trader Trader)
         {
-            
 
             Traders.Add(Trader);
         }
 
+        //Find specific financial entity from the order origin.
         public FinancialEntity? FindEntity(string origin)
         {
             Console.WriteLine("Exchange finding financial entity\n");
 
+            //Switch on the origin
             switch (origin)
             {
+                //if stock origin is DK, find børsen
                 case "DK":
                     foreach (FinancialEntity entity in FinancialEntities)
                     {
@@ -55,7 +63,7 @@ namespace StockExchangeMediator
                     }
                     break;
 
-
+                //if stock origin is UK, find London Stock Exchange
                 case "UK":
                     foreach (FinancialEntity entity in FinancialEntities)
                     {
@@ -66,6 +74,7 @@ namespace StockExchangeMediator
                     }
                     break;
 
+                //if stock origin is US, find WallStreet
                 case "US":
                     foreach (FinancialEntity entity in FinancialEntities)
                     {
@@ -76,18 +85,21 @@ namespace StockExchangeMediator
                     }
                     break;
 
-
+                //return null if not found
                 default:
                    return null;
+                   
 
             }
             return null;
         }
 
+        //Find specific trader for m name
         public Trader FindTrader(string Tradername)
         {
             Console.WriteLine("Exchange finding trader\n");
 
+            //Find trader where name equals the name we are searching for and return it
             foreach (Trader T in Traders)
             {
                 if(T._name == Tradername)
@@ -98,50 +110,64 @@ namespace StockExchangeMediator
 
         }
 
+        //Sends the order from trader to correct financial entity
         public bool serve(Order order, string Tradername)
         {
             /**
              * Choose the financial entity suitable for the order
              */
+            //Find the entity from the origin
             var entity = FindEntity(order.StockOrigin);
 
+            //if not found return false
             if (entity == null)
                 return false;
-            
-            entity.sell(order, Tradername);
-         
+            //Else sell
+            else
+                entity.sell(order, Tradername);
+            //return true (tade went through)
             return true;
                 
             
         }
 
+        //Tell trader that his order went through
         public void ConfirmTrade(Order order, string Tradername, FinancialEntity entity)
         {
+            //Find trader who ordered
             var trader = FindTrader(Tradername);
-         
+
+            //Confirm his order went through and from what entity he bought
             trader.OrderConfirmed(order, Tradername, entity);
         }
 
-
-        public void ValidationOk(Order order, string Tradername)
-        {
-            var trader = FindTrader(Tradername);
-
-            trader.OrderValidated(order);
-
-        }
-
-        public void ValidationNotOk(Order order, string Tradername)
-        {
-            var trader = FindTrader(Tradername);
-
-            trader.OrderNotValid(order);
-
-        }
-
+        //Send traders order to validation in regulator
         public void Validate(Order order, string Tradername)
         {
             regulator.ValidateOrder(order, Tradername);
         }
+
+        //Regulator has confirmed order is valid
+        public void ValidationOk(Order order, string Tradername)
+        {
+            //Find trader from name
+            var trader = FindTrader(Tradername);
+            
+            //Tell trader that order is valid
+            trader.OrderValidated(order);
+
+        }
+
+        //Regulator has confirmed order is invalid
+        public void ValidationNotOk(Order order, string Tradername)
+        {
+            //Find trader from name
+            var trader = FindTrader(Tradername);
+
+            //Tell trader that order is invalid
+            trader.OrderNotValid(order);
+
+        }
+        
     }
 }

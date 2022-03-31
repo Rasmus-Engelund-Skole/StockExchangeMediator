@@ -8,6 +8,7 @@ namespace StockExchangeMediator
 {
     public class Regulator
     {
+        //Reference to the mediator
         private Exchange exchange;
 
         public Regulator(Exchange exchange)
@@ -15,6 +16,9 @@ namespace StockExchangeMediator
             this.exchange = exchange;
         }
 
+        /*Validates that the price and quantity is positive, 
+        and that the stockname and origin is no null
+        */
         public void ValidateOrder(Order order, string Tradername)
         {
             Console.WriteLine("Regulator validating order\n");
@@ -30,6 +34,6 @@ namespace StockExchangeMediator
             else
                 exchange.ValidationNotOk(order, Tradername);
         }
-
+        
     }
 }

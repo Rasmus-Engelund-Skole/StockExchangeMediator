@@ -9,7 +9,8 @@ namespace StockExchangeMediator
     public class Order
     {
 
-        private string? stock;
+        //Atrributes from order we want to use
+        private string? stockName;
         private int quantity;
         private double price;
         public string? StockOrigin;
@@ -22,12 +23,13 @@ namespace StockExchangeMediator
 
         public Order(string Stock, int Quantity, double Price, string Origin)
         {
-            this.stock = Stock;
+            this.stockName = Stock;
             this.quantity = Quantity;
             this.price = Price;
             this.StockOrigin = Origin;
         }
 
+        //Set and get for all attributes
         public void setStockOrigin(string origin)
         {
             this.StockOrigin = origin;
@@ -40,12 +42,12 @@ namespace StockExchangeMediator
 
         public string? getStock()
         {
-            return stock;
+            return stockName;
         }
 
         public void setStock(string stock)
         {
-            this.stock = stock;
+            this.stockName = stock;
         }
 
         public int getQuantity()
